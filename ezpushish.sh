@@ -1,18 +1,18 @@
-echo "Enter the new site dir:"
+echo "Enter le nom du nouveau site:"
 read sitedir
 
-echo "Enter apache group"
+echo "Enter le groupe apache"
 read apachegroup
 
-echo "Enter your username"
+echo "Enter votre username"
 read username
 
-echo "Enter mysql root username:"
+echo "Enter le username mysql root:"
 read dbuser
-echo "Enter mysql root password:"
+echo "Enter mle password mysql:"
 read dbpass
 
-echo "DB name to be created:"
+echo "DB que tu veux generer:"
 read dbname
 
 if [ ! -d ezpublish-community ]:
@@ -55,7 +55,7 @@ cp -r ezpublish-community ${sitedir}
 
 
 
-# adds your user to apache group
+# ajouter votre user dans le groupe apache
 usermod -a -G ${apachegroup} ${username}
 
 # makes your user in the apache group the owner of the new site dir
@@ -77,12 +77,7 @@ find ${sitedir} -type f -exec chmod 664 {} \;
 cd ${sitedir}
 
 mkdir src/Tutei
-###### use a branch
-#git clone -b 1.x https://github.com/thiagocamposviana/TuteiBaseBundle.git src/Tutei/BaseBundle
-#cd src/Tutei/BaseBundle
-#git stash
-#git checkout 1.x
-#cd ../../..
+
 
 git clone https://github.com/thiagocamposviana/TuteiBaseBundle.git src/Tutei/BaseBundle
 
